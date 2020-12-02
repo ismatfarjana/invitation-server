@@ -1,4 +1,17 @@
-const { getAllGuests, getOneGuestById } = require("../utils/guest_utils");
+const {
+  getAllGuests,
+  getOneGuestById,
+  addGuest
+} = require("../utils/guest_utils");
+
+const addNewGuest = (req, res) => {
+  addGuest(req)
+    .then(guest => {
+      console.log("saved guest", guest);
+      res.json(guest);
+    })
+    .catch(err => res.status(400).json("Error while adding new guest:" + err));
+};
 
 const allGuests = (req, res) => {
   getAllGuests(req)
@@ -14,4 +27,4 @@ const oneGuest = (req, res) => {
     .catch(err => res.status(500).json("Error while getting one guest:" + err));
 };
 
-module.exports = { allGuests, oneGuest };
+module.exports = { addNewGuest, allGuests, oneGuest };

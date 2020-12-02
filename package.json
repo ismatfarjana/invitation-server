@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {},
   "repository": "git+https://github.com/ismatfarjana/invitation.git",

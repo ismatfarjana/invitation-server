@@ -5,12 +5,10 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 const app = express();
-
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 
-app.use(cors);
-app.use(express.json());
+app.use(cors());
 
 const uri = process.env.MONGO_URI;
 mongoose
@@ -27,11 +25,16 @@ mongoose
     console.log("Cannot connect to The DB");
   });
 
+app.use(express.json());
+
 app.get("/", (req, res) => {
-  res.send("Homepage");
+  res.send("Welcome to invitation page");
 });
 
-const port = process.env.PORT || 3000;
+const guestsRoute = require("./routes/guestsRoutes");
+app.use("/api/guests", guestsRoute);
+
+const port = process.env.PORT || 3002;
 app.listen(port, () => {
   console.log(`Express API listening to port http://localhost:${port}`);
 });

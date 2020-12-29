@@ -8,5 +8,6 @@ const {
 } = require("../controllers/guest_controller");
 
 router.post("/RSVP", addNewGuest);
+router.get("/list", allGuests);
 
 module.exports = router;

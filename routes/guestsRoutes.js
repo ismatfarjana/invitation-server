@@ -7,8 +7,6 @@ const {
   addNewGuest
 } = require("../controllers/guest_controller");
 
-router.get("/", allGuests);
-router.post("/", addNewGuest);
-router.get("/:id", oneGuest);
+router.post("/RSVP", addNewGuest);
 
 module.exports = router;

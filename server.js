@@ -27,10 +27,6 @@ mongoose
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("Welcome to invitation page");
-});
-
 const guestsRoute = require("./routes/guestsRoutes");
 app.use("/api/guests", guestsRoute);
 
